@@ -1,0 +1,21 @@
+{
+  "name": "YTtest",
+  "version": "1.0.0",
+  "description": "Just for testing",
+  "author" : "Yongtang <hyteer@gmail.com>",
+  "tags" : ["test", "testing"],
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "ejs": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url" : "http://github.com/hyteer/test.git"
+  },
+  "bin" : {
+    "test" : "./app.js"
+  }
+}
