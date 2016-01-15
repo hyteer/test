@@ -2,20 +2,24 @@
   "name": "YTtest",
   "version": "1.0.0",
   "description": "Just for testing",
-  "author" : "Yongtang <hyteer@gmail.com>",
-  "tags" : ["test", "testing"],
+  "author": "Yongtang <hyteer@gmail.com>",
+  "tags": [
+    "test",
+    "testing"
+  ],
   "scripts": {
     "start": "node app"
   },
   "dependencies": {
+    "ejs": "*",
     "express": "^4.13.3",
-    "ejs": "*"
+    "nodemailer": "^2.0.0"
   },
   "repository": {
     "type": "git",
-    "url" : "http://github.com/hyteer/test.git"
+    "url": "http://github.com/hyteer/test.git"
   },
-  "bin" : {
-    "test" : "./app.js"
+  "bin": {
+    "test": "./app.js"
   }
 }
