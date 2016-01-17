@@ -1,0 +1,25 @@
+{
+  "name": "chatrooms",
+  "version": "0.0.7",
+  "description": "Minimalist multi-room chat server",
+  "author": "Mike Cantelon <mcantelon@gmail.com>",
+  "tags": [
+    "cli",
+    "chat"
+  ],
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "^3.0.0-beta1",
+    "jade": "*",
+    "socket.io": "^0.9.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mcantelon/chatrooms.git"
+  },
+  "bin": {
+    "chatrooms": "./app.js"
+  }
+}

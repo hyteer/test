@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var ejs = require('ejs');
-var routes = require('./routes.js');
+var routes = require('./routes');
 var ng=0;
 var ns=0;
 
@@ -29,4 +29,5 @@ app.get('/user/:username',function(req,res){
     console.log("msg sent: "+ns);
 });
 
-app.listen(3000)
+app.listen(3000);
+console.log('Node test server listen on:3000');
