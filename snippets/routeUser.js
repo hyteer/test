@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
     console.log("msg sent: "+ns);
 })
  
-var users={'silly':{name:'Yt',sex:'male'}};
+var users={'silly':{name:'Yt',sex:'male'},see: {name:'Dyci',sex:'female'}};
 app.all('/user/:username',function(req,res,next){
     if(users[req.params.username]){
     ng+=1;
@@ -28,4 +28,5 @@ app.get('/user/:username',function(req,res){
     console.log("msg sent: "+ns);
 });
 
-app.listen(3000)
+app.listen(3000);
+console.log('Test server listen on:3000');

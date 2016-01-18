@@ -6,7 +6,7 @@ var MongoClient = require('mongodb').MongoClient,
   temporal.delay(2000,function(){
   console.log('connect db...');
 
-MongoClient.connect('mongodb://localhost:27017/test', function(err, db) {
+MongoClient.connect('mongodb://localhost:27017/test11', function(err, db) {
   test.equal(null, err);
   console.log('connect success!');
   // Execute ping against the server
