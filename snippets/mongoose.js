@@ -46,3 +46,4 @@ app.get('/users/:email', function (req, res) {
 
 // Start the server
 app.listen(8000);
+console.log('test server listen on: 8000');

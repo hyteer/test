@@ -11,8 +11,12 @@
     "start": "node app"
   },
   "dependencies": {
+    "body-parser": "^1.14.2",
+    "connect-mongo": "^1.1.0",
+    "cookie-parser": "^1.4.1",
     "ejs": "*",
     "express": "^4.13.3",
+    "express-session": "^1.13.0",
     "jade": "^1.11.0",
     "moment": "^2.11.1",
     "mongoose": "^4.3.6",
