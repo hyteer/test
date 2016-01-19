@@ -3,10 +3,12 @@ var bodyParser=require('body-parser');
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+var settings = require('./settings');
 
 var app = express();
 
-app.use(bodyParser());
+//app.use(bodyParser());
+app.use(bodyParser.urlencoded( {extended: false}));
 app.use(cookieParser());
 /**app.use(session({ 
   secret: 'password', 
@@ -15,7 +17,7 @@ app.use(cookieParser());
     secure: false
     }
     }));**/
-
+/*
 app.use(session({
     cookie: { maxAge: 1000*60*2 } ,
     secret: "session secret" ,
@@ -28,10 +30,28 @@ app.use(session({
             collection: 'session', 
             auto_reconnect:true
     })
+}));*/
+
+
+
+app.use(session({
+  secret: settings.cookieSecret,
+  key: settings.db,//cookie name
+ // cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},//30 days
+  cookie: {maxAge: 1000 * 60 * 60},//cookie expiration by seconds
+  name: "MongoSessionDemo",
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({
+	url:'mongodb://silly:111@localhost:27017/test',
+	ttl: '20',
+	autoRemove:'native',
+//    url:'mongodb://localhost:'+port+'/'+settings.db,
+  })
 }));
 
 app.get('/', function(req, res){
-  res.sendfile('./index.html');
+  res.sendFile(__dirname+'/index.html');
 });
 app.post('/',function(req,res){
   req.session.name=req.body.name;
