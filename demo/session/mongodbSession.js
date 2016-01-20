@@ -20,6 +20,8 @@ var express = require('express');
       cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week 
       },
+	resave: false,
+ 	saveUninitialized: true,
       store: store
     }));
  
@@ -28,3 +30,4 @@ var express = require('express');
     });
  
     server = app.listen(3000);
+console.log('Server is running...');
