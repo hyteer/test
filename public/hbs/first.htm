@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{headerTitle}}</title>
+	<script src="handlebars-v4.0.5.js"></script>
+	<script src="jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+
+<div id="test">...</div>
+<div id="hbs"></div>
+<button>Click</button>
+
+<script id="header" type="text/x-handlebars-template">​
+ <div> Title: {{ headerTitle }} <br>
+Weekday: {{ weekDay }}
+ </div>​
+
+​</script>
+
+
+<script>
+//var source = $("#entry-template").html();
+//var template = Handlebars.compile(source);
+
+//ar context = {title:"My New Post", body: "This is my first post!"};
+//var html = template(context);
+
+var data = {headerTitle:"Test Page", weekDay:"Wednesday"};
+
+// Retrieve the HTML from the script tag we setup in step 1
+// We use the id (header) of the script tag to target it on the page
+var source = $("#header").html();
+
+// The Handlebars.compile function returns a function to theTemplate variable​
+var template = Handlebars.compile (source);
+var title="HBSDemo";
+
+$(document).ready(function(){
+	$("#test").html("<h2>Below is the handlebars tempate data</h2>");
+	$('button').click(function(){
+		//$('#entry-template').html("<h1>Hello...</h1>");
+		var titlenow=$("title").html();
+		if(titlenow===title){
+			$("title").html("Nemo");
+
+		}else{
+			$("title").html(title);
+		}
+		$("#hbs").append (template (data));
+		
+		//document.getElementsByTagName('title')[0].innerHTML="HBSdemo";
+	});
+
+});
+
+</script>
+</body>
+</html>
+
+

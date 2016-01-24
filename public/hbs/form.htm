@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+<title>JQuery Test</title>
+<script src="jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+<h1>Test Form</h1>
+<div>Data Shows Here...</div>
+<p class="showdata">...........</p>
+
+<form id='form1'> 
+Name:<input type="text" id="name"><br>
+Email:<input type="text" id="email"><br>
+
+<input type="button" value="Show Form Data" id="submit">
+</form>
+
+<script>
+$(document).ready(function(){
+   $("#submit").click(function(){
+	 //自动将form表单封装成json
+	var name=$("#name").val();
+	var email=$("#email").val();
+	$("div").text(name);
+	$(".showdata").text(email);
+	alert("Name is : " + $("#name").val() + "\n Email is: " + $("#email").val());
+   });
+});	
+</script>
+
+</body>
+</html>

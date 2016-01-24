@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo2</title>
+
+	<script src="handlebars-v4.0.5.js"></script>
+	<script src="jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+
+
+<h3>User info</h3>
+<div id="hbs">
+
+</div>
+
+<script id="people" type="text/x-handlebars-template">
+<ul>
+{{#each people}}
+  <li>Name: {{firstName}} {{lastName}} </li>
+
+{{/each}}
+</ul>
+</script>
+
+
+<script>
+var data={
+  people: [
+    {firstName: "Yehuda", lastName: "Katz"},
+    {firstName: "Carl", lastName: "Lerche"},
+    {firstName: "Alan", lastName: "Johnson"}
+  ]
+}
+var source = $("#people").html();
+var template = Handlebars.compile(source);
+
+document.getElementById("hbs").innerHTML=template(data);
+
+  //$("#hbs").append(html);
+  //document.getElementById('hbs').innerHTML=html;
+  //document.getElementById("p1").innerHTML="New text!";
+
+</script>
+
+</body>
+</html>
