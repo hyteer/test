@@ -2,7 +2,7 @@
 var  mongodb = require('mongodb');
 //var mongodb = require('./db'); 
 var  server  = new mongodb.Server('localhost', 27017, {auto_reconnect:true});
-var  db = new mongodb.Db('test', server, {safe:true});
+var  db = new mongodb.Db('apitest', server, {safe:true});
 
 
 function User(user) { 
@@ -32,7 +32,7 @@ User.get =  function  get(username, callback) {
      if (err) { return  callback(err);
      } 
     // Read users collection
-     db.collection('apitest', function(err, collection) {
+     db.collection('apiUsers', function(err, collection) {
          if  (err) {
              db.close();
              return  callback(err); 
@@ -43,11 +43,9 @@ User.get =  function  get(username, callback) {
          if  (doc) {
            // 封装文档为 User 对象
          var  user =  new  User(doc);
-	    console.log('name is: '+doc);
-	    return callback(null, doc);
 		}
-	 else{
-           return callback(err, user); 
+	  else{
+           callback(err, user); 
                }            
       });
      });
