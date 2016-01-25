@@ -2,7 +2,7 @@
 var express = require('express')
 var app = express();
 
-var user=require('./user.js');
+var user=require('./userAuth.js');
 
 var urinfo={name:'yt',password:'222'};
 var Ur=new user(urinfo);

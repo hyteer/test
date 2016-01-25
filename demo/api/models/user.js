@@ -1,5 +1,7 @@
 //user.js
 var  mongodb = require('mongodb');
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://silly:111@localhost:27017/test";
 //var mongodb = require('./db'); 
 var  server  = new mongodb.Server('localhost', 27017, {auto_reconnect:true});
 var  db = new mongodb.Db('test', server, {safe:true});
@@ -29,7 +31,9 @@ User.prototype.save =  function  save(callback) {   // Store to Mongodb
  }); }; 
 User.get =  function  get(username, callback) {
    db.open(function(err, db) {
-     if (err) { return  callback(err);
+     if (err) { 
+      console.log(err);
+      return  callback(err);
      } 
     // Read users collection
      db.collection('apitest', function(err, collection) {
