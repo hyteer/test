@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temp-Handlebars test</title>
+	<script src="handlebars-v4.0.5.js"></script>
+	<script src="jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+<h3>Test data</h3>
+<div id="hbs">...</div>
+
+<script id="template" type="text/x-handlebars-template">
+<div>
+
+Name:{{person.name}} Remark:{{person.sex}}<br>
+
+</div>
+
+
+
+</script>
+
+
+
+<script>
+var data = {person: {name: "Tony", sex:"Male"}};
+
+//var source=document.getElementById('#template').innerHTML();
+var source = $("#template").html();
+
+var template = Handlebars.compile(source);
+$("#hbs").html(template(data));
+//document.getElementById('hbs').innerHTML=template(data);
+
+</script>
+
+</body>
+</html>

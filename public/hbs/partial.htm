@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temp-Handlebars test</title>
+	<script src="handlebars-v4.0.5.js"></script>
+	<script src="jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+<h3>Test data</h3>
+<div id="hbs">...</div>
+
+<script id="shoe-template" type="x-handlebars-template">
+   {{#each allShoes}}​
+   <li class="shoes">​
+   <span class="shoe-name"> {{name}} - </span> price: {{price}}
+	{{> description}}
+   </li>
+    {{/each}}
+</script>
+<script id="shoe-description" type="x-handlebars-template">​
+<ul>
+	<li>{{color}}</li>
+	<li>{{size}}</li>
+</ul>
+</script>
+
+
+
+
+<script>
+
+var shoesData = {allShoes:[{name:"Nike", price:199.00, color:"black", size:10 }, {name:"Loafers", price:59.00, color:"blue", size:9 }, {name:"Wing Tip", price:259.00, color:"brown", size:11 }]};
+
+
+var source=$("#shoe-template").html();
+var template=Handlebars.compile(source);
+
+Handlebars.registerPartial("description", $("#shoe-description").html());
+$("#hbs").append(template(shoesData));
+
+
+</script>
+</body>
+</html>

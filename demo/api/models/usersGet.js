@@ -4,7 +4,7 @@ var querystring = require('querystring');
 // Mongoose import
 var mongoose = require('mongoose');
 var uri = 'mongodb://ted:ted@ds061797.mongolab.com:61797/theenlighteneddeveloper';
-var uri2 = 'mongodb://localhost:27017/test';
+var uri2 = 'mongodb://silly:111@localhost:27017/test';
 
 // Mongoose connection to MongoDB (ted/ted is readonly)
 mongoose.connect(uri2, function (error) {
@@ -60,7 +60,7 @@ app.get('/users/add/:options', function (req, res) {
 	flag:0,
 	});
     newUser.save(function(err, doc){
-        if(err) return cb({ error: 'Unable to add new doc.' });
+        if(err) return callback({ error: 'Unable to add new doc.' });
         //callback(null, { id: doc._id });
 	console.log('Insert:'+name+'success.');
     }); 

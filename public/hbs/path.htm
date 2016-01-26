@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temp-Handlebars test</title>
+	<script src="handlebars-v4.0.5.js"></script>
+	<script src="jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+<h3>Test data</h3>
+<div id="hbs">...</div>
+
+<script id="templateSource" type="text/x-handlebars-template">
+{{#users}}
+<li><br>{{name.firstName}} {{name.lastName}} is in the {{../groupName}} group.</li>
+
+{{/users}}
+</script>
+
+
+
+
+<script>
+
+var shoesData = {
+	groupName:"Celebrities", 
+	users:[{name:{firstName:"Mike", lastName:"Alexander" }}, {name:{firstName:"John", lastName:"Waters" }} ]
+};
+
+var source=$("#templateSource").html();
+var template=Handlebars.compile(source);
+$("#hbs").html(template(shoesData));
+
+
+</script>
+</body>
+</html>
