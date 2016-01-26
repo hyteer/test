@@ -15,9 +15,10 @@ mongoose.connect(uri2, function (error) {
 // Mongoose Schema definition
 var Schema = mongoose.Schema;
 var UserSchema = new Schema({
-    first_name: String,
-    last_name: String,
-    email: String
+    name: String,
+    remark: String,
+    approved: Boolean,
+    flag: Number,
 });
 
 // Mongoose Model definition
@@ -36,6 +37,24 @@ app.get('/users', function (req, res) {
     User.find({}, function (err, docs) {
         res.json(docs);
     });
+});
+
+app.get('/users/add/:name/:remark', function (req, res) {
+    var name=req.params.name;
+    var remark=req.params.remark;
+    var newUser = new User({
+	name:name,
+	remark:remark,
+	approved:false,
+	flag:0,
+	});
+    newUser.save(function(err, doc){
+        if(err) return cb({ error: 'Unable to add new doc.' });
+        //callback(null, { id: doc._id });
+	console.log('Insert:'+name+'success.');
+    }); 
+	
+    res.send('name: '+name+'<br>remark: '+remark);
 });
 
 app.get('/users/:email', function (req, res) {

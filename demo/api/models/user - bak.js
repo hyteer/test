@@ -1,7 +1,5 @@
 //user.js
 var  mongodb = require('mongodb');
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://silly:111@localhost:27017/test";
 //var mongodb = require('./db'); 
 var  server  = new mongodb.Server('localhost', 27017, {auto_reconnect:true});
 var  db = new mongodb.Db('test', server, {safe:true});
@@ -16,7 +14,7 @@ User.prototype.save =  function  save(callback) {   // Store to Mongodb
     db.open(function(err, db) { 
         if (err)  { 
             return  callback(err);     }     // Read users collection     
-        db.collection('apitest', function(err, collection) { 
+        db.collection('apiUsers', function(err, collection) { 
             if  (err) { 
                 db.close(); 
                 return  callback(err);       } 
@@ -31,9 +29,7 @@ User.prototype.save =  function  save(callback) {   // Store to Mongodb
  }); }; 
 User.get =  function  get(username, callback) {
    db.open(function(err, db) {
-     if (err) { 
-      console.log(err);
-      return  callback(err);
+     if (err) { return  callback(err);
      } 
     // Read users collection
      db.collection('apitest', function(err, collection) {
@@ -45,13 +41,12 @@ User.get =  function  get(username, callback) {
       collection.findOne({name: username},  function(err, doc) {
          db.close();
          if  (doc) {
-           // Encapsulate User object
+           // 封装文档为 User 对象
          var  user =  new  User(doc);
 	    console.log('name is: '+doc);
 	    return callback(null, doc);
 		}
 	 else{
-	   err = 'there is an error.';
            return callback(err, user); 
                }            
       });
