@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test case</title>
+</head>
+<body>
+<h3>Test case</h3>
+<ul>
+<li><a onclick="showPic(this);return false;" href="temp/QQ截图20160123164428.png">test1</a></li>
+<li><a onclick="showPic(this);return false;" href="temp/QQ截图20160125135930.png">test1</a></li>
+<li><a onclick="showPic(this);return false;" href="temp/QQ截图20160126170657.png">test1</a></li>
+<li><a onclick="showPic(this);return false;" href="temp/QQ截图20160128124801.png">test1</a></li>
+</ul>
+<img id="holder" alt="show pics" src="" width="1280px" height="800px">...</div>
+<script>
+function showPic(whichPic){
+var src=whichPic.getAttribute('href');
+var holder=document.getElementById('holder');
+holder.setAttribute('src',src);
+}
+</script>
+</body>
+</html>
+
+
