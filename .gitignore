@@ -1,6 +1,7 @@
 # ignore packages installed by npm
 node_modules
 uploads
+temp
 .idea
 *~
 *.*_bak

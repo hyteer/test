@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Snippets</title>
+
+<style>
+body{
+	color:white;
+	background-color: black;
+
+}
+.special { 
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color:#ccc;
+	font-style:italic;
+	border: 1px solid #864;
+}
+.special span{ text-transform:uppercase;}
+ul { margin-top:5px;border: 1px solid #468;}
+h2 {align}
+</style>
+<script>
+function popUp(url){
+	window.open(url,'YTpop','width=480,height=500');
+}
+
+</script>
+</head>
+<body>
+
+
+<h2>Javascript DOM programing</h2>
+<p class="special">Some texts in paragraph,just for learning <span>web develope</span> technology.</p>
+<ul title="a test list" class='list'>Some texts in the ul elements
+<li>item1</li>
+<li>item2</li>
+<li>item3</li>
+</ul>
+<ul>...</ul>
+<ul title="test title"></ul>
+<div id="test">Test div...</div>
+	
+<h2>Javascript pseudo protocal</h2>
+<a href="javascript:popUp('img.htm');">A link Open by javascript pseudo protocal</a>
+<h2>Use event handler instead</h2>
+<h3>No graceful way</h3>
+<a href="#" onclick="popUp('img.htm');return false;">Open a link by event handler</a>
+<h3>Graceful way</h3>
+<a href="img.htm" onclick="popUp(this.href);return false;">Opena link in a gracefull way</a>
+</body>
+</html>

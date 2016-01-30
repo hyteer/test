@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test case</title>
+<style>
+body{ 
+	margin: 1em 10%;
+
+}
+
+li {
+	margin-left: 1em;
+	display: inline-block;
+}
+a { 
+	color: #F68899;nod
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration:none;
+}
+
+</style>
+
+</head>
+<body>
+<h3>Test case</h3>
+<ul>
+<li><a title="This is a test picture" onclick="showPic(this);return false;" href="temp/IMG_0841.JPG">test1</a></li>
+<li><a title="Just Another test pic" onclick="showPic(this);return false;" href="temp/IMG_0840.JPG">test1</a></li>
+<li><a title="Picture of house" onclick="showPic(this);return false;" href="temp/IMG_0838.JPG">test1</a></li>
+<li><a title="Wooden house" onclick="showPic(this);return false;" href="temp/IMG_0837.JPG">test1</a></li>
+</ul>
+<img id="holder" alt="show pics" src="" height="600px">
+<div id="description">...</div>
+<script>
+function showPic(whichPic){
+var src=whichPic.getAttribute('href');
+var holder=document.getElementById('holder');
+holder.setAttribute('src',src);
+var text=whichPic.getAttribute('title');
+var description=document.getElementById('description');
+description.firstChild.nodeValue=text;
+}
+</script>
+</body>
+</html>
+
+
