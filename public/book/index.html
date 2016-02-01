@@ -6,7 +6,7 @@
 <style>
 body{
 	color:white;
-	background-color: black;
+	background-color: #111;
 
 }
 .special { 
@@ -18,9 +18,22 @@ body{
 }
 .special span{ text-transform:uppercase;}
 ul { margin-top:5px;border: 1px solid #468;}
-h2 {align}
+h2 {}
 </style>
 <script>
+window.onload = prepareLinks;
+function prepareLinks(){
+	var links = document.getElementsByTagName('a');
+	for(var i=0;i<links.length;i++){
+		if(links[i].getAttribute("class")=="popup"){
+			links[i].onclick = function(){
+				popUp(this.getAttribute("href"));
+				return false;
+			}
+		}
+	}
+}
+
 function popUp(url){
 	window.open(url,'YTpop','width=480,height=500');
 }
@@ -41,12 +54,13 @@ function popUp(url){
 <ul title="test title"></ul>
 <div id="test">Test div...</div>
 	
-<h2>Javascript pseudo protocal</h2>
+<h2 id="doevt">Javascript pseudo protocal</h2>
 <a href="javascript:popUp('img.htm');">A link Open by javascript pseudo protocal</a>
 <h2>Use event handler instead</h2>
 <h3>No graceful way</h3>
 <a href="#" onclick="popUp('img.htm');return false;">Open a link by event handler</a>
 <h3>Graceful way</h3>
-<a href="img.htm" onclick="popUp(this.href);return false;">Opena link in a gracefull way</a>
+<a href="img.htm" onclick="popUp(this.href);return false;">Open a link in a gracefull way</a><br>
+<a href="img.htm" class="popup">Open link by function</a>
 </body>
 </html>

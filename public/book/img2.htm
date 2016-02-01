@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head><title>Image Gallery Demo</title>
+<style>
+body{ 
+	margin: 1em 2%;
+}
+h3 { text-align: center;}
+#container{ margin: 0 1em;width:1024px;height:800px;border:1px solid #ccc;}
+ul { display:block;margin: .5em 1em;}
+li {
+	display: inline-block;
+}
+a { 
+	color: #F68899;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration:none;
+}
+#holder { display: block; height: 600px;}
+
+</style>
+
+</head>
+<body>
+<h3>Image Gallery Demo</h3>
+<div id="container">
+
+<ul id="imgGallery">
+<li><a title="This is a test picture" href="temp/IMG_0841.JPG"><img src="temp/thumbnail/IMG_0841.JPG"></a></li>
+<li><a title="Just Another test pic" href="temp/IMG_0840.JPG"><img src="temp/thumbnail/IMG_0840.JPG"></a></li>
+<li><a title="Picture of house" href="temp/IMG_0838.JPG"><img src="temp/thumbnail/IMG_0838.JPG"></a></li>
+<li><a title="Wooden house" href="temp/IMG_0837.JPG"><img src="temp/thumbnail/IMG_0837.JPG"></a></li>
+</ul>
+
+<img id="holder" alt="show pics" src="">
+
+<div id="description">...</div>
+</div>
+
+<script>
+function showPic(whichPic){
+	if(!document.getElementById('holder')){
+		return false;
+	}
+	var src=whichPic.getAttribute('href');
+	var holder=document.getElementById('holder');
+		holder.setAttribute('src',src);
+	if(document.getElementById('description')){
+		var text=whichPic.getAttribute('title');
+		var description=document.getElementById('description');
+			description.firstChild.nodeValue=text;
+	}
+	return true;
+}
+
+function preGallery(){
+	// Check for browser supports
+	if(!document.getElementById || !document.getElementsByTagName){
+		return false;
+	}
+	if(!document.getElementById('imgGallery')){
+		return false;
+	}
+
+	// Get links
+	var imgGallery = document.getElementById('imgGallery');
+	var links = imgGallery.getElementsByTagName('a');
+	for(var i=0;i<links.length;i++){
+		links[i].onclick = function(){
+			return !showPic(this);
+			//return false;
+		}
+	}
+
+}
+
+
+window.onload = function(){
+	preGallery();
+}
+</script>
+</body>
+</html>
+
+
