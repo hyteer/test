@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head><title>Temp</title>
-
-</head>
-
-<body>
-<div id="test">...
-</div>
-
-<h1>What is the Document Object Model?</h1>
-<p>
-The <abbr title="World Wide Web Consortium">W3C</abbr> defines The
- <abbr title="Document Object Model">DOM</abbr> as: 
-</p>
- <blockquote cite="http://www.w3.org/DOM">
- <p>
-A platform- and language-neutral interface that will allow programs and scripts to dynamically access and update the content, structure and style of documents.
- </p></blockquote>
- <p>
- It is an <abbr title="Application Programming Interface">API</abbr>
-that can be used to navigate <abbr title="HyperText Markup Language">
-HTML</abbr> and <abbr title="eXtensible Markup Language">XML
-</abbr> documents.
-</p>
-
-
-<script>
-function getAbbrList(){
+function displayAbbrList(){
 	var abbr=document.getElementsByTagName('abbr');
 	var newdl=document.createElement('dl');
 	var newdt=document.createElement('dt');
@@ -64,10 +36,4 @@ function getAbbrList(){
 	document.body.appendChild(newdl);
 }
 
-window.onload = function(){
-	getAbbrList();
-}
-
-</script>
-</body>
-</html>
+//addLoadEvent(displayAbbrList());

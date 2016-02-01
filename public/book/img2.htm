@@ -38,6 +38,8 @@ a {
 <div id="description">...</div>
 </div>
 
+<script src="js/addLoadEvent.js"></script>
+
 <script>
 function showPic(whichPic){
 	if(!document.getElementById('holder')){
@@ -75,11 +77,14 @@ function preGallery(){
 
 }
 
-
+/*
 window.onload = function(){
 	preGallery();
-}
+}*/
+addLoadEvent(preGallery());
 </script>
+
+
 </body>
 </html>
 

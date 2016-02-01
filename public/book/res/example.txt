@@ -1,0 +1,2 @@
+Congratulations! this content is returned by ajax.
+这是一个测试页！
