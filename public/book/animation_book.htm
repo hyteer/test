@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Message</title>
+</head>
+<body>
+<p id="message">Whee!</p>
+
+<script src="js/moveElement_Org.js"></script>
+<script>
+function positionMessage(){
+if (!document.getElementById) return false;
+if (!document.getElementById("message")) return false;
+var elem = document.getElementById("message");
+elem.style.position = "absolute";
+elem.style.left = "60px";
+elem.style.top = "120px";
+moveElement("message",320,280,10);
+}
+
+
+window.onload=function(){
+	positionMessage();
+}
+</script>
+</body>
+</html>
+

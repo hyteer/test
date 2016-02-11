@@ -11,10 +11,30 @@
 
 <script>
 function moveMessage() {
+	var endx=400,endy=280;
 	if (!document.getElementById) return false;
 	if (!document.getElementById("test")) return false;
 	var elem = document.getElementById("test");
-	elem.style.left = "200px";
+	var xpos = parseInt(elem.style.left);
+	var ypos = parseInt(elem.style.top);
+	if(xpos == endx && ypos == endy){
+		return true;
+	}
+	if (xpos<endx){
+		xpos++;
+	}
+	if (xpos>endx){
+		xpos--;
+	}
+	if (ypos<endy);{
+		ypos++;
+	}
+	if (ypos>endy){
+		ypos--;
+	}
+	elem.style.left=xpos+"px";
+	elem.style.top=ypos+"px";
+	movement = setTimeout("moveMessage()",10);
 }
 
 function positionMessage(){

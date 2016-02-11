@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><title>Animation Demo</title>
+
+</head>
+<body>
+
+<h1>Animation Demo</h1>
+<div id="test">Click Me #1</div>
+<div id="test2">Click Me #2</div>
+
+
+<script src="js/moveElement.js"></script>
+<script>
+
+function positionMessage(){
+	if(!document.getElementById){ return false;}
+	if(!document.getElementById('test')){return false;}
+
+
+	var elem=document.getElementById('test');
+	elem.style.position="absolute";
+	elem.style.left="50px";
+	elem.style.top="100px";
+	var flag="init";
+	elem.onclick=function(){
+		console.log(flag);
+		if(flag!="init" && flag!="done"){ return false;}
+		var x2=Math.round((Math.random()).toFixed(3)*500);
+		var y2=Math.round((Math.random()).toFixed(3)*500);
+		console.log("elem#1:("+x2+","+y2+")");
+		
+		var aaa=moveElement("test",x2,y2,10);
+		console.log(flag);
+		function showaaa(){console.log(flag)}
+		setTimeout(showaaa,6000);
+
+		/*if(){
+			var flag=true;
+		}else{
+			flag=false;
+		}*/
+
+		return false;
+	}
+	/*
+	var elem2=document.getElementById('test2');
+	elem2.style.position="absolute";
+	elem2.style.left="50px";
+	elem2.style.top="200px";
+	elem2.onclick=function(){
+		var x2=Math.round((Math.random()).toFixed(3)*500);
+		var y2=Math.round((Math.random()).toFixed(3)*500);
+		console.log("elem#2:("+x2+","+y2+")");
+		moveElement("test2",x2,y2,10);
+		return false;
+	}
+	//var movement=setTimeout("moveMessage()", 3000);*/
+}
+
+
+window.onload = function(){
+	positionMessage();
+}
+
+</script>
+</body>
+</html>
