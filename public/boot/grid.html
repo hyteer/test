@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" charset="utf-8">
+<title>Bootstrap Template</title>
+<link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css">
+<style type="text/css">
+.row div{
+height: 3em;
+line-height: 3em;
+padding-left: 0;
+padding-right: 0;
+background-color: rgba(86,61,124,.15);
+border: 1px solid rgba(86,61,124,.2);
+//box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;
+}
+.container div{
+  margin: 10px 0;
+}
+h4{ color: #000;}
+.col-md-offset-3{ background: #6C6;}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1>Hello Bootstrap</h1>
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="row">
+  <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="row">
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+
+<!-- Columns are always 50% wide, on mobile and desktop -->
+<div class="row">
+  <div class="col-xs-6">.col-xs-6</div>
+  <div class="col-xs-6">.col-xs-6</div>
+</div>
+
+
+
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="bootstrap/bootstrap.js"></script>
+</body>
+</html>

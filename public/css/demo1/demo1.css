@@ -2,6 +2,23 @@ body,div,p,a,ul,li,dl,dt,dd,h1{margin: 0;padding: 0;}
 h1{font-size: 100%;}
 html{background: url(images/bg.png) repeat-x;}
 body{background: url(images/cloud.jpg) repeat-x; padding-top: 40px;}
+#light{
+	float: right;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+#light a{
+	display: block;
+	width: 110px;
+	height: 110px;
+	background: url(res/ilight.png) no-repeat;
+}
+#light a:hover{
+	background: url(res/ilight2.png) no-repeat;
+
+}
 #header,#banner,#content,#footer{width: 1000px;margin: 0 auto;}
 #header{overflow: hidden;}
 #logo{width: 220px;height: 54px;float: left;background: #FDCCCC;}
@@ -33,7 +50,7 @@ body{background: url(images/cloud.jpg) repeat-x; padding-top: 40px;}
 	color: #FC6;
 }
 
-#banner{ width: 1000px; height: 291px; margin: 10px auto;}
+#banner{ width: 1000px; height: 291px; margin: 10px auto; position: relative;}
 #banner img{ display: block; width: 1000px; height: 291px;}
 
 #content{

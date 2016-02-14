@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Bootstrap Typography</title>
+<link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css">
+<style>
+.text-left{
+//	text-align: right;
+}
+.green{ color: green;}
+.blue{ color: blue;}
+.list-unstyled li{
+	list-style: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+   <h1>Typography</h1>
+   <h1>h1. Heading with <small>Small Heading</small></h1>
+   <h3>Inline text elements</h3>
+   <div>
+	   	<p>&lt mark &gt: Hello,i'm <mark>Tony.Hoo</mark>, this my first time ...</p>
+		<p>&lt del &gt&&lt ins &gt: My favorite color is <del class="green">Green</del> <ins class="blue">Blue</ins>.</p>
+		<p>&lt u &gt: <u>This line of text will render as underline</u></p>
+		<p>&lt small &gt: <small>This line of text is meant to be treated as fine print</small></p>
+		<p>&lt strong &gt: The following snippet of text is <strong>rendered as bold</strong>.</p>
+		<p>&lt em &gt: The following snippet of text is rendered as <em>Italicized text.</em></p>
+   </div>
+
+   <div>
+   <h3>Alignment</h3>
+
+   		<p class="text-left">Left aligned text.</p>
+		<p class="text-center">Center aligned text.</p>
+		<p class="text-right">Right aligned text.</p>
+		<p class="text-justify">Justified text.</p>
+		<p class="text-nowrap">No wrap text.</p>
+	<h3>Transformation</h3>
+		<p class="text-lowercase">Lowercased text.</p>
+		<p class="text-uppercase">Uppercased text.</p>
+		<p class="text-capitalize">Capitalized text.</p>
+		<h3>Abbreviation</h3>
+		<p>&lt abbr &gt: mouse hover the following text <abbr title="attribute">attr</abbr></p>
+		<p>initialism: <abbr title="HyperText Markup Language" class="initialism">html language</abbr> is for Web</p>
+
+	<h3>Addresses</h3>
+		<address>
+		  <strong>Twitter, Inc.</strong><br>
+		  1355 Market Street, Suite 900<br>
+		  San Francisco, CA 94103<br>
+		  <abbr title="Phone">P:</abbr> (123) 456-7890
+		</address>
+
+		<address>
+		  <strong>Full Name</strong><br>
+		  <a href="mailto:#">first.last@example.com</a>
+		</address>
+	<h3>Blockquote</h3>
+		<blockquote>
+		  <h4>EXAMPLE</h4>
+		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+		</blockquote>
+		<h4>Blockquote options</h4>
+		<blockquote>
+		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+		  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+		</blockquote>
+		<h4>Alternate displays</h4>
+		<blockquote class="blockquote-reverse">
+		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+		  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+		</blockquote>
+
+	<h3>Lists</h3>
+	  <h4>Unordered</h4>
+	    <ul>
+	    	<li>Hello Silly</li>
+	    	<li>I'm YT</li>
+	    	<li>Web tecnologies
+	    	<ul>
+	    		<li>PHP</li>
+	    		<li>Node.js</li>
+	    		<li>Angular</li>
+	    	</ul>
+	    	</li>
+	    	<li>I'm Tony</li>
+	    </ul>
+	   <h4>Ordered</h4>
+	   	<ol>
+	   		<li>Hello Silly</li>
+	    	<li>I'm YT</li>
+	    	<li>Web tecnologies
+	    	<ul>
+	    		<li>PHP</li>
+	    		<li>Node.js</li>
+	    		<li>Angular</li>
+	    	</ul>
+	    	</li>
+	    	<li>I'm Tony</li>
+	   	</ol>
+	   <h4>Unstyled</h4>
+	   	<ul class="list-unstyled">
+	    	<li>Hello Silly</li>
+	    	<li>I'm YT</li>
+	    	<li>Web tecnologies
+	    	<ul>
+	    		<li>PHP</li>
+	    		<li>Node.js</li>
+	    		<li>Angular</li>
+	    	</ul>
+	    	</li>
+	    	<li>I'm Tony</li>
+	    </ul>
+	 <h4>Inline</h4>
+	   <ul class="list-inline">
+	    	<li>Hello Silly</li>
+	    	<li>I'm YT</li>
+	    	<li>I'm Tony</li>
+	    </ul>
+	 <h4>Description</h4>
+	 	<dl>
+	 		<dt>Description lists</dt>
+	 		<dd>A description list is perfect for defining terms</dd>
+	 		<dt>PHP</dt>
+	 		<dd>A popular web server language</dd>
+	 		<dt>Node.js</dt>
+	 		<dd>A light weight and fast javascript implmentation on server </dd>
+	 	</dl>
+	 <h4>Horizontal description</h4>
+	 	<dl class="dl-horizontal">
+	 		<dt>Description lists</dt>
+	 		<dd>A description list is perfect for defining terms</dd>
+	 		<dt>PHP</dt>
+	 		<dd>A popular web server language</dd>
+	 		<dt>Node.js</dt>
+	 		<dd>A light weight and fast javascript implmentation on server </dd>
+	 	</dl>
+
+   </div>
+   
+<br><br><br><br>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="bootstrap/bootstrap.js"></script>
+</body>
+</html>
