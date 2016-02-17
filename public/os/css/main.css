@@ -1,0 +1,80 @@
+body,div{margin:0;padding:0;}
+html,body{height:100%;}
+body{font-family: 'Helvetica Neue', Arial, sans-serif; background: #69f;-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;}
+#drag-1, #drag-2,#drag-3 {
+  width: 40px;
+  height: 40px;
+  //min-height: 1.5em;
+  margin: 2px;
+
+  background-color: rgba(120,60,80,0.4);
+  color: white;
+
+  border-radius: 0.75em;
+  padding: 3px;
+
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+}
+#drag3 input{ width:40px;}
+#drag-1 a,#drag-2 a{ color: #000;text-decoration:none;}
+#drag-1 a:hover,#drag-2 a:hover{ color: #dee;}
+
+#drag-me::before {
+  content: "#" attr(id);
+  font-weight: bold;
+}
+
+#draggable {
+    width: 100px;
+    height: 100px;
+    background: rgba(120,60,80,0.4);
+    border-radius: 0.6em;
+  }
+#draggable input{width:40px;}
+
+#btPanel{
+	background:rgba(60,60,100,0.4);
+	box-shadow: 4px 4px 5px rgba(40,50,80,0.4);
+	position:fixed;
+	margin:auto;
+	border: 1px solid rgba(80,80,120,0.4);
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	left:0; 
+	right:0;  
+	bottom:0;
+	width:80%; 
+	height:60px;
+}
+
+.DemoContainer {
+	padding: 5px 0 30px;
+}
+
+.DemoContainer span {
+	cursor: pointer;
+	display: inline-block;
+	margin: 5px;
+	padding: 5px 15px;
+	background: rgba(120,100,80,0.4);
+	border: 1px solid #ced9e4;
+	border-radius: 5px;
+	transition: background-color .3s;
+}
+
+.DemoContainer span:hover {
+	background: #ced9e4;
+}
+.DemoContainer a {
+	color: #8f99a4;
+	text-decoration: none;
+	-webkit-transition: color .2s;
+	transition: color .2s;
+}
+
+.DemoContainer a:hover {
+	color: #505963;
+	text-decoration: none;
+}

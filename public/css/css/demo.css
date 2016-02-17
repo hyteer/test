@@ -1,0 +1,25 @@
+body{
+  background-color:#031B25;
+  overflow:hidden;
+}
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+  width:900px;
+  height:600px;
+}
+
+svg{
+  position:absolute;
+  width:100%;
+}
+
+.volGroup{
+  cursor:pointer;
+  display:none;
+}

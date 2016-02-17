@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" charset="utf-8">
+<title>Bootstrap - Form</title>
+<link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css">
+<style type="text/css">
+.call-out{
+  border: 1px solid #EEE;
+  border-left-width: 5px;
+  border-left-color: #c96;
+  margin: .6em 0;
+  border-radius: 4px;
+  padding: .5em 1em;
+}
+.call-out h4{ color: #aa6708;}
+.call-out:hover{
+  background: #ccc;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1>Bootstrap - Button dropdowns</h1>
+  <h3>Single button dropdowns</h3>
+    <!-- Single button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+<div class="btn-group"> <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Primary <span class="caret"></span></button> <ul class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li role="separator" class="divider"></li> <li><a href="#">Separated link</a></li> </ul> </div>
+<div class="btn-group"> <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Success <span class="caret"></span></button> <ul class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li role="separator" class="divider"></li> <li><a href="#">Separated link</a></li> </ul> </div>
+<div class="btn-group"> <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danger <span class="caret"></span></button> <ul class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li role="separator" class="divider"></li> <li><a href="#">Separated link</a></li> </ul> </div>
+
+<br><br><br><br>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="bootstrap/bootstrap.js"></script>
+</body>
+</html>

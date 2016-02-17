@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web OS</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <link href="http://code.jboxcdn.com/0.3.2/jBox.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+<div id="btPanel">Bottom Panel</div>
+
+
+
+<div id="drag-1" class="draggable">
+  <a href="#">Test1</a>
+</div>
+<div id="drag-2" class="draggable">
+    <a href="rightClick.htm"> Test2 </a>
+</div>
+<div id="drag-3" class="draggable" size="5">
+    <input type="text" class="draggable" placeholder="test3">
+</div>
+<div id="draggable"><input type="text" placeholder="Test"></div>
+
+ 
+<div class="DemoContainer">
+
+	<span id="modalDragOnTitle">Toggle: Drag on title,it's a DIV</span>
+	
+	<br>
+	
+	<span id="modalDragOnElement">Toggle: Drag on element</span>
+	
+	<br>
+	
+	<span id="modalDragAnywhere">Toggle: Drag anywhere</span>
+
+</div>
+
+<script src="scripts/interact.min.js"></script>
+<script src="scripts/drag.js"></script>
+
+ <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script>
+var _startX = 0;            // mouse starting positions
+var _startY = 0;
+var _offsetX = 0;           // current element offset
+var _offsetY = 0;
+var _dragElement;           // needs to be passed from OnMouseDown to OnMouseMove
+var _oldZIndex = 0;         // we temporarily increase the z-index during drag
+var _debug = $('debug');    // makes life easier
+window.onload=function(){
+	InitDragDrop();
+}
+$( "#draggable" ).draggable();
+</script>
+<script src="http://code.jboxcdn.com/0.3.2/jBox.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

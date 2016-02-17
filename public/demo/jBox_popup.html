@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<title>jBox Demo · Draggable popup windows</title>
+
+<meta charset="utf-8">
+<meta name="author" content="Stephan Wagner">
+
+<!-- Include jQuery -->
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Include jBox -->
+<link href="http://code.jboxcdn.com/0.3.2/jBox.css" rel="stylesheet">
+<script src="http://code.jboxcdn.com/0.3.2/jBox.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+
+    // Drag with title
+    new jBox('Modal', {
+        attach: $('#modalDragOnTitle'),
+        width: 200,
+        title: 'jBox',
+        overlay: false,
+        content: 'Drag me around by using the title',
+        draggable: 'title',
+        repositionOnOpen: false,
+        repositionOnContent: false
+    });
+    
+    // Drag on element
+    new jBox('Modal', {
+        attach: $('#modalDragOnElement'),
+        width: 200,
+        title: 'jBox',
+        overlay: false,
+        createOnInit: true,
+        content: 'Drag me around by using <b id="dragElement">this element</b>',
+        draggable: $('#dragElement'),
+        repositionOnOpen: false,
+        repositionOnContent: false
+    });
+    
+    // Drag anywhere
+    new jBox('Modal', {
+        attach: $('#modalDragAnywhere'),
+        width: 200,
+        title: 'jBox',
+        overlay: false,
+        createOnInit: true,
+        content: 'Drag me around by clicking anywhere',
+        draggable: true,
+        repositionOnOpen: false,
+        repositionOnContent: false
+    });
+    
+});
+</script>
+
+<div class="DemoContainer">
+
+	<span id="modalDragOnTitle">Toggle: Drag on title</span>
+	
+	<br>
+	
+	<span id="modalDragOnElement">Toggle: Drag on element</span>
+	
+	<br>
+	
+	<span id="modalDragAnywhere">Toggle: Drag anywhere</span>
+
+</div>
+
+<!-- Ignore these files -->
+<link href="http://stephanwagner.me/css/jBox/demo-download.css" rel="stylesheet">
+<link href="http://stephanwagner.me/css/jBox/Demo/draggable-popup-windows.css" rel="stylesheet">

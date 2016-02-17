@@ -1,0 +1,86 @@
+//body,div,button{margin: 0;padding: 0;}
+html,body{ height: 100%;overflow: auto;}
+.container{
+	background: #CDE;
+	height: 100%;
+	width: 100%;
+
+}
+
+.bt-panel{
+
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background: #68D;
+	//text-align: center;
+	vertical-align: middle;
+
+}
+/* The ghost, nudged to maintain perfect centering */
+.bt-panel:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+.os-panel { position: fixed;}
+
+.bt-menu{
+	display: inline-block;
+  vertical-align: middle;
+  margin-left: .2em;
+  width: 40px;
+  height: 40px;
+
+  background: #ccc;
+}
+.navbar{
+	position: absolute;
+	bottom: 0px;
+display: inline-block;
+ vertical-align: middle;
+  margin-left: .2em;
+ // background: #abc;
+}
+
+#go:hover{ color: #CCC;}
+
+//.go span{ }
+
+/* This parent can be any width and height */
+.block {
+	position: absolute;
+	top: 200px;
+ // text-align: center;
+  background: #ccc;
+}
+
+/* The ghost, nudged to maintain perfect centering */
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+/* The element to be centered, can
+   also be of any width and height */ 
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+  background: #abc;
+}
+#drag-bar{
+	z-index: 1000;
+	position: absolute;
+	top: 0;
+	float: left;
+	width: 20px;
+	height: 100%;
+	background: blue;
+}
