@@ -6,7 +6,7 @@
 <style>
 body,div{margin:0;padding:0;}
 html,body{height:100%;}
-#drag-1, #drag-2 {
+#drag-1, #drag-2,#drag-3 {
   width: 40px;
   height: 40px;
   //min-height: 1.5em;
@@ -21,6 +21,9 @@ html,body{height:100%;}
   -webkit-transform: translate(0px, 0px);
           transform: translate(0px, 0px);
 }
+#drag3 input{ display:inline-block;width:100%;}
+#drag-1 a,#drag-2 a{ color: #000;text-decoration:none;}
+#drag-1 a:hover,#drag-2 a:hover{ color: #dee;}
 
 #drag-me::before {
   content: "#" attr(id);
@@ -31,10 +34,13 @@ html,body{height:100%;}
 <body>
 
 <div id="drag-1" class="draggable">
-  <span>Test1</span>
+  <a href="#">Test1</a>
 </div>
 <div id="drag-2" class="draggable">
-    <p> Test2 </p>
+    <a href="rightClick.htm"> Test2 </a>
+</div>
+<div id="drag-3" class="draggable" size="5">
+    <input type="text" class="draagable" placeholder="test3">
 </div>
 <script src="scripts/interact.min.js"></script>
 <script src="scripts/drag.js"></script>
