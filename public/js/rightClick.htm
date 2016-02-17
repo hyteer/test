@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Message</title>
+</head>
+<body>
+<p id="test">Right click!</p>
+<a id="test2" href="#">Link test</a>
+<script>
+var elem = document.getElementsByTagName("a");
+function msg(e){
+ alert(e.innerHTML);
+}
+function showMsg(){
+for( var i=0;i<elem.length;i++){
+  elem[i].oncontextmenu=function(){
+	msg(this);
+    return false;
+	}
+}
+}
+window.onload=function(){
+	showMsg();
+}
+</script>
+</body>
+</html>
