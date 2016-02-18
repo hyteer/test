@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Handlebars-CustomHelper</title>
+	<script src="handlebars-v4.0.5.js"></script>
+	<script src="jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+<h3>Test data</h3>
+<div id="hbs">...</div>
+
+<script id="template" type="text/x-handlebars-template">
+<div>
+{{#each this}}​
+    <li>Name: {{name}} Sex: {{sex}} </li>​
+  {{/each}}
+</div>
+</script>
+<script id="shoe-template" type="x-handlebars-template">​
+ {{theNameOfTheHelper score}}
+​</script>
+
+
+
+<script>
+var contextObj = {score:85, userName:"Mike"};
+Handlebars.registerHelper ("theNameOfTheHelper", function (theScore) {
+    console.log("Grade: " + theScore );
+    var userGrade = "C";
+
+   if (theScore >= 90) {
+       return "A" ;
+   }
+   else if (theScore >= 80 && theScore < 90) {
+       return "B" ;
+   }
+   else if (theScore >= 70 && theScore < 80) {
+       return "C" ;
+   }
+   else {
+       return "D" ;
+   }  
+});
+
+var source = $("#shoe-template").html();
+var template = Handlebars.compile(source);
+$("#hbs").html(template(contextObj));
+
+/*
+var data = {person:{name: "Tony", sex:"Male"}};
+var favoriteFruits = {customers:{firstName:"Peter", lastName:"Paul"}};
+//var source=document.getElementById('#template').innerHTML();
+var source = $("#template").html();
+
+var template = Handlebars.compile(source);
+
+
+
+
+$("#hbs").html(template(data));
+//document.getElementById('hbs').innerHTML=template(data);
+*/
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Handlebars-CustomHelper</title>
+	<script src="handlebars-v4.0.5.js"></script>
+	<script src="jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+<h3>Test data</h3>
+<div id="hbs">...</div>
+
+
+<script id="shoe-template" type="x-handlebars-template">​
+ {{#userScore this}}​
+<div>{{firstName}} {{lastName}}, Your Total Score is <strong>{{score}}</strong> </div>​
+{{/userScore}}
+</script>​
+
+
+
+var contextObj = [{firstName: "Kapil", lastName:"Manish", score:[22, 34, 45, 67]}, {firstName: "Bruce", lastName:"Kasparov", score:[10, 34, 67, 90]}];
+Handlebars.registerHelper ("userScore", function (dataObject, options) {
+var templateWithInterpolatedData = "";
+
+for (var i = dataObject.length - 1; i >= 0; i--) {
+    //Sum user scores from the score array and replace the array with the total​
+    dataObject[i].score = dataObject[i].score.reduce(function (prev, cur, index, array) {
+                return prev + cur;
+           });
+
+// Each object in the data object array is interpolated with the options.fn method, which processes all the HTML from the template and insert the values from the object in their respective positions. ​
+
+// Just so you understand the purpose of the options.fn method: it does exactly what the regular handlebars template function does when we pass the data object to the function, to  retrieve the values from the object and insert them into the HTML from the template.​
+
+// Without the options.fn object in this example, the raw objects (instead of the interpolated values) would have been returned​
+ 
+templateWithInterpolatedData += options.fn (dataObject[i]);
+
+}
+
+// We return the full string of HTML with all the values from the data object inserted into place.​
+
+return templateWithInterpolatedData;   
+});
+
+var source = $("#shoe-template").html();
+//alert(source);
+var template = Handlebars.compile(source);
+$("#hbs").html(template(contextObj));
+
+/*
+var data = {person:{name: "Tony", sex:"Male"}};
+var favoriteFruits = {customers:{firstName:"Peter", lastName:"Paul"}};
+//var source=document.getElementById('#template').innerHTML();
+var source = $("#template").html();
+
+var template = Handlebars.compile(source);
+
+
+
+
+$("#hbs").html(template(data));
+//document.getElementById('hbs').innerHTML=template(data);
+*/
+</script>
+
+</body>
+</html>

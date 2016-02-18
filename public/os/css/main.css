@@ -1,6 +1,6 @@
 body,div{margin:0;padding:0;}
 html,body{height:100%;}
-body{font-family: 'Helvetica Neue', Arial, sans-serif; background: #69f;-webkit-font-smoothing: antialiased;
+body{font-family: 'Helvetica Neue', Arial, sans-serif; background: rgba(255,255,255,0.4);;-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;}
 #drag-1, #drag-2,#drag-3 {
   width: 40px;
