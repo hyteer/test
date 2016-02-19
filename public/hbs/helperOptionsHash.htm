@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Handlebars-CustomHelper</title>
+	<script src="handlebars-v4.0.5.js"></script>
+	<script src="jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+<h3>Test data</h3>
+<div id="hbs">...</div>
+
+
+<script id="hbs-template" type="x-handlebars-template">
+{{#list people class="green"}}{{firstName}}-----{{lastName}}{{/list}}
+{{#list people class="red"}}{{firstName}}-----{{lastName}}{{/list}}
+</script>
+
+
+<script>
+
+var data = {
+    people: [
+        {firstName: "Yehuda", lastName: "Katz"},
+        {firstName: "Carl", lastName: "Lerche"},
+        {firstName: "Alan", lastName: "Johnson"}
+    ]
+}
+
+Handlebars.registerHelper('list', function(items, options) {
+    var out = '<ul>';
+    for(var i=0, l=items.length; i<l; i++) {
+        var item = options.fn(items[i]);
+        out = out + '<li class="'+options.hash.class+'">' + item + '</li>';
+    }
+    return out + '</ul>';
+});
+
+var source = $("#hbs-template").html();
+//alert(source);
+var template = Handlebars.compile(source);
+$("#hbs").html(template(data));
+
+
+</script>
+
+</body>
+</html>
