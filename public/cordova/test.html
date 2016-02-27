@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Cordova test</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #eee; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { color: #999; border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { color: #999; list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+  <body>
+    <div id="show">...</div>
+    <form action="">
+	<input id="info" autocomplete="off" placeholder="type info"/>
+      <input id="num" autocomplete="off" placeholder="type Number"/><button>Send</button>
+    </form>
+   <script type="text/javascript" src="cordova.js"></script>
+   <script src="../res/jquery-2.1.4.min.js"></script>
+   <script src="../res/socket.io.js"></script>
+   <script>
+var socket = io('http://192.168.1.181:3003/test');
+var data = {};
+$('form').submit(function(){
+  data.info = $('#info').val();
+  data.num = $('#num').val();
+  socket.emit('testData',data);
+   
+  //socket.emit('data',data);
+  $('#info').val('');
+    return false;
+});
+socket.on('testData', function(data){
+        $('#show').innerHTML(data.info);
+      });
+
+
+</script>
+  </body>
+</html>
