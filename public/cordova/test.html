@@ -35,7 +35,7 @@ $('form').submit(function(){
     return false;
 });
 socket.on('testData', function(data){
-        $('#show').innerHTML(data.info);
+        $('#show').text(data.info);
       });
 
 
