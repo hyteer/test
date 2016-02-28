@@ -2,26 +2,17 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var settings = require('./settings.js');
 
-var userNum = 0;
-//app.use(express.static(__dirname+'/public'));
+app.use(express.static(__dirname+'/public'));
 
-/*
-app.get('/', function(req,res){
-  res.sendFile('index.html');
-
-});*/
+app.get('/test', function(req,res){
+  res.send(settings.host);
+});
 
 
-io.sockets.on('connection', function(socket){
-  userNum++;
-  console.log('a user connected. [total: ' + userNum +']');
-
-  var socketId = socket.id;
-  var clientIp = socket.request.connection.remoteAddress;
-
-  console.log(clientIp);
-
+io.on('connection', function(socket){
+  console.log('a user connected.');
   socket.on('chatData', function(data){
     io.emit('chatData', data);
     console.log('name: ' + data.name + ' | message: ' + data.msg);
@@ -30,12 +21,9 @@ io.sockets.on('connection', function(socket){
     if(!data){var data="no data."}; 
     console.log('name: ' + data.name+'\nmsg: '+data.msg);
   });*/
-
   socket.on('disconnect', function(){
-    userNum--;
-    console.log('disconnected. [total: ' + userNum + ']');
+    console.log('disconnected');
   });
-
 });
 
 /*

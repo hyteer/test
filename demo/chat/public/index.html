@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>YT Socket.IO test</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
@@ -19,9 +20,8 @@
 	<input id="name" autocomplete="off" placeholder="Name"/>
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-   <script type="text/javascript" src="cordova.js"></script>
-   <script src="res/jquery-2.1.4.min.js"></script>
-   <script src="res/socket.io.js"></script>
+   <script src="jquery-2.1.4.min.js"></script>
+   <script src="socket.io.js"></script>
    <script>
 var socket = io('http://192.168.1.113:3003');
 var data = {};
