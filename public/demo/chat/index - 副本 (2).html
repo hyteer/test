@@ -9,9 +9,8 @@
       body { height: 100%; font: 13px Helvetica, Arial;}
       .msgs { position: absolute; width: 100%; height: 80%;background: #eef;}
       #messages { position: relative;height: 100%; width: 100%; color: #999; list-style-type: none; margin: .5em auto .5em;overflow: auto; border: 1px solid #abc; background: #fff;}
-      #messages li { padding: 5px 10px; width: 100%; }
+      #messages li { padding: 5px 10px; width: 100%;text-align: left;  }
       #messages li:nth-child(odd) { background: #eee; }
-      .me { text-align: right;}
       .msgForm { display: table; position: fixed; width: 100%;height: 20%; bottom: 0; background: #eef;}
       #cont { display: table;position: absolute;bottom: 0;width: 100%;height:96%; margin: auto; background: white;}
       .msg { display: table-cell; vertical-align:bottom;position: relative; bottom: 0; height: 5.8em; margin: 0 auto 1em; padding: 1em .5em; border: 1px solid #abc;}
@@ -43,26 +42,19 @@
    <script>
 
 var socket = io(setting.host+':'+setting.port);
-var myData = {};
+var data = {};
 $('form').submit(function(){
-  myData.msg = $('#m').val();
-  myData.name = $('#name').val();
-  myData.id = socket.io.engine.id;
-  //alert('ID: '+myData.id);
-  $('#messages').append($('<li class="me">').text('[ '+myData.name + ' ]: ' + myData.msg));
-  
-  socket.emit('chatData',myData);
+  data.msg = $('#m').val();
+  data.name = $('#name').val();
+  socket.emit('chatData',data);
    
+  //socket.emit('data',data);
   $('#m').val('');
     return false;
 });
-
-socket.on('chatData', function(data){
-	//alert(data.name);
-	if(!(data.id===myData.id)){
-          $('#messages').append($('<li>').text('[ '+data.name + ' ]: ' + data.msg));
-	}
-});
+    socket.on('chatData', function(data){
+        $('#messages').append($('<li>').text('[ '+data.name + ' ]: ' + data.msg));
+      });
 
 
 </script>

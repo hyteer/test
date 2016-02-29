@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Socket test</title>
+
+</head>
+<body>
+<ul id="show">...</ul>
+<form id="test">
+<input id="msg" type="text" placeholder="type test msg" />
+<button type="submit">Send</button>
+</form>
+
+   <script src="jquery-2.1.4.min.js"></script>
+   <script src="socket.io.js"></script>
+   <script src="settings.js"></script>
+   <script>
+
+var socket = io();
+var data = {};
+var list = document.getElementsByTagName("li").length;
+if( list >= 5){ alert("li Num. reached max"); }
+$('form').submit(function(){
+  data.msg = $('#msg').val();;
+  socket.emit('chatData',data);
+   
+  $('#msg').val('');
+    return false;
+});
+socket.on('testData', function(data){
+	
+        $('#show').append($('<li>').text('[ '+data.name + ' ]: ' + data.msg));
+});
+
+
+</script>
+
+</body>
+</html>

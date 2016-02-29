@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Socket test</title>
+
+</head>
+<body>
+<ul id="show">...</ul>
+<form id="test">
+<input id="msg" type="text" placeholder="type test msg" />
+<button type="submit">Send</button>
+</form>
+
+   <script src="jquery-2.1.4.min.js"></script>
+   <script src="socket.io.js"></script>
+   <script src="settings.js"></script>
+   <script>
+
+var socket = io(setting.host+':'+setting.port);
+var data = {};
+
+
+$('form').submit(function(){
+  data.msg = $('#msg').val();;
+  socket.emit('testData',data);
+   
+  $('#msg').val('');
+    return false;
+});
+socket.on('testData', function(msg){
+	var list = document.getElementsByTagName("li");
+	if(list.length>=3){ 
+	  for(var i=0;i<3;i++){
+	    //console.log(list[i].innerHTML);
+	    if(i==2){list[i].innerHTML=msg;}
+	    list[i].innerHTML=list[i+1].innerHTML;
+	  }
+	}else{  $('#show').append($('<li>').text(msg)); }
+       
+});
+
+
+</script>
+
+</body>
+</html>
