@@ -9,6 +9,7 @@
 <form id="test">
 <input id="msg" type="text" placeholder="type test msg" />
 <button type="submit">Send</button>
+<button onclick="addUser();return false;">Join</button>
 </form>
 
    <script src="jquery-2.1.4.min.js"></script>
@@ -27,6 +28,12 @@ $('form').submit(function(){
   $('#msg').val('');
     return false;
 });
+
+function addUser(){
+		// call the server-side function 'adduser' and send one parameter (value of prompt)
+		socket.emit('addUser', prompt("What's your name?"));
+}
+
 socket.on('testData', function(msg){
 	var list = document.getElementsByTagName("li");
 	if(list.length>=3){ 
@@ -38,6 +45,9 @@ socket.on('testData', function(msg){
 	}else{  $('#show').append($('<li>').text(msg)); }
        
 });
+
+
+
 
 
 </script>
