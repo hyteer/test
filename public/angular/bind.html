@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><title>Angular-Bind</title>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="" ng-init="price='';quantity='';">
+Price: <input type="text" class="num" ng-model="price" placeholder="price">
+Quantity: <input type="text" class="num" ng-model="quantity" placeholder="quantity"><br>
+Total: {{price*quantity}} <br>
+Total: <span ng-bind="price*quantity"></span>
+</div>
+</body>
+
+<script type="text/javascript">
+function addEvent()
+{
+ var nums=document.getElementsByClassName('num');
+	for(var i=0;i<nums.length;i++){
+	  nums[i].addEventListener('change', checkNum)
+	}
+ 
+}
+
+function checkNum(){
+  if(!Number(this.value))
+		alert('Please type a number.');
+}
+
+
+
+window.onload = addEvent;
+
+</script>
+
+
+</html>
