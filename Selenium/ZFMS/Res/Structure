@@ -1,0 +1,24 @@
+
+
+---页面结构
+<登录后>
+
+顶部：div  class=index_top
+    Logo：div    class=left_logo
+    主菜单：div  class=index_menu
+    登录信息栏：div   class=search_welcome
+
+主体：div  id=layoutMain
+    左侧菜单栏：div   id=l-layout-left
+    右侧内容：div    id=l-layout-center
+        内容主体：div    id=framecenter
+            自定义表：iframe: id=83
+                表栏：id=bpmTableForm (表单列表)
+                    表信息：class=table-detail
+                    表列表：class=tableColumnItem
+            自定义表单：iframe    id=86
+
+                表单：id=bpmFormDefItem
+            自定义查询：iframe    id=88
+
+

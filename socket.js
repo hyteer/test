@@ -8,14 +8,16 @@ var userNum = 0;
 
 /*
 app.get('/', function(req,res){
-  res.sendFile('index.html');
+  res.sendFile(__dirname+'/public/demo/chat/index.html');
 
 });*/
-
+var debug="Hi! you're connected.";
 
 io.sockets.on('connection', function(socket){
   userNum++;
+  io.emit('debug', debug);
   console.log('a user connected. [total: ' + userNum +']');
+  console.log('connects: '+Object.keys(io.sockets.connected).length);
 
   var socketId = socket.id;
   var clientIp = socket.request.connection.remoteAddress;
@@ -31,9 +33,14 @@ io.sockets.on('connection', function(socket){
     console.log('name: ' + data.name+'\nmsg: '+data.msg);
   });*/
 
+  socket.on('debug', function(debug){
+    console.log(debug);
+  });
+  
   socket.on('disconnect', function(){
     userNum--;
     console.log('disconnected. [total: ' + userNum + ']');
+    console.log('connects: '+Object.keys(io.sockets.connected).length);
   });
 
 });

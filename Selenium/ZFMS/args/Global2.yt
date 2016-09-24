@@ -1,0 +1,6 @@
+
+HOME='http://192.168.31.237:8090/bw_sms'
+DELAY=2
+
+loginID='admin'
+loginPass='1'

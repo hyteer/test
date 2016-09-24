@@ -1,0 +1,136 @@
+.intro{
+  text-align: center;
+  line-height: 2em;
+  
+  margin: 0;
+  
+  font-size: .8em;
+  
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+.container{
+  width: 640px;
+  height: 1136px;
+
+  border-radius: 80px;
+  padding: 160px 30px;
+  background-color: #333;
+  
+  display: block;
+  margin: 60px auto;
+  
+  transform: scale(.5) translateY(-50%);
+    
+}
+
+.wrapper{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  overflow: hidden;
+  
+  position: relative;
+  
+  
+}
+
+$size: 142px;
+
+.header{
+
+  display: block;
+  
+}
+
+h1{
+  font-family: 'Futura', sans-serif;
+  color: #333;
+  
+  text-align: center;
+  line-height: $size;
+  
+  margin: 0;
+  
+  text-transform: uppercase;
+}
+
+
+.menu-toggle{
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  font-size: 3em;
+  width: $size;
+  height: $size;
+  text-align: center;
+  line-height: $size;
+  display: block;
+}
+
+.menu{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;  
+  transition: all .3s ease;
+  
+  perspective: 2000px;
+}
+
+  .item{
+    background-color: #33334c;
+    border-top: 1px solid #182844;
+    border-bottom: 1px solid #253149;
+    color: white;
+    
+    width: $size;
+    height: $size;
+    line-height: $size;
+    display: block;
+    text-align: center;
+
+    transition: transform .6s ease, background-color .1s .15s ease;
+    transform-origin: left center;
+    position: relative;
+    
+    text-decoration: none;
+    font-size: 3em;
+    
+    &:active{
+      background-color: #d64a73;
+      color: white;
+      transition: all .2s 0 ease;
+    }
+    
+  }
+
+.menu--is-closed{
+  
+  pointer-events: none;
+  
+  .item{
+    transform: rotateY(180deg);
+    background-color: #272841;
+    
+  }
+}
+
+$delay-unit: .1s;
+$n: 7;
+
+@for $i from 0 through $n {
+  .item-#{$i} { 
+    transition-delay: $delay-unit * ( $n - $i );
+    z-index: $i;
+  }
+  
+  .menu--is-closed .item-#{$i} { 
+    transition-delay: $delay-unit * $i; 
+  }
+}

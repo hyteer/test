@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" name="Cases.form.table.ZfmsForm-20160504182935" skipped="0" tests="1" time="17.030">
+	<testcase classname="Cases.form.table.ZfmsForm" name="test_table_smoke" time="17.030"/>
+	<system-out>
+<![CDATA[
+---添加自定义表---
+添加字段...
+New field name:  field1
+XPath: //table[@id='bpmFormTableItem']/tbody/tr/td[contains(text(), 'auto_test_table')]
+查找新添加的表： auto_test_table
+添加表成功！
+---查询表---
+查询到 3 个表
+---删除表---
+删除表成功！
+]]>	</system-out>
+	<system-err>
+<![CDATA[]]>	</system-err>
+</testsuite>

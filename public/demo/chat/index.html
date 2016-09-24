@@ -5,19 +5,67 @@
     <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
     <style>
      // * { margin: 0; padding: 0; box-sizing: border-box; }
-      body,div, ul,li,input,button,form{ margin: 0; padding: 0; box-sizing: border-box; }
+      body,div, ul,li,input,button,form,img{ margin: 0; padding: 0; box-sizing: border-box; }
       body { height: 100%; font: 13px Helvetica, Arial;}
       .msgs { position: absolute; width: 100%; height: 80%;background: #eef;}
-      #messages { position: relative;height: 100%; width: 100%; color: #999; list-style-type: none; margin: .5em auto .5em;overflow: auto; border: 1px solid #abc; background: #fff;}
-      #messages li { padding: 5px 10px; width: 100%; }
-      #messages li:nth-child(odd) { background: #eee; }
-      .me { text-align: right;}
+      #messages { position: relative;height: 100%; width: 100%; color: #fff; list-style-type: none; margin: 1.2em auto .5em;overflow: auto; border: 1px solid #abc; background: #fff;}
+
+     .messages { 
+      height: 100%;
+      margin: 1.2em auto;
+      overflow-y: scroll;
+    }
+     .messages li{
+      display: block;
+      padding: 10px 0;
+      clear: both;
+      border-radius: 25px;
+      position: relative;
+      margin: .5em 0em;
+
+ 
+     }
+     .msg-right{ text-align: right;}
+     .msg-left{ text-align: left;}
+     .msg-right span.msg-name{ 
+     // display: block;
+     // float: left;
+     // padding: 10px 10px;
+      background: #999;
+      margin-left: 1em;
+      margin-right: 1em;
+      margin-bottom: 0em;
+
+     }
+    .msg-left .chatMsg,.msg-right .chatMsg{ 
+     // display: block;
+     // float: right;
+      padding: 10px 20px;
+      clear: both;
+      border-radius: 25px;
+      position: relative;
+      margin-bottom: 1.2em;
+      background: #36a9fc;
+    }
+     
+      .msg-right span.msg-name{
+        display: block;
+        float: right;
+      }
+      .msg-left span.msg-name{ 
+      background: #999;
+      margin: 0 1em;
+      }
+
+
       .msgForm { display: table; position: fixed; width: 100%;height: 20%; bottom: 0; background: #eef;}
       #cont { display: table;position: absolute;bottom: 0;width: 100%;height:96%; margin: auto; background: white;}
-      .msg { display: table-cell; vertical-align:bottom;position: relative; bottom: 0; height: 5.8em; margin: 0 auto 1em; padding: 1em .5em; border: 1px solid #abc;}
-      .msg input { padding: .5em; border: 1px solid #abc; border-radius: 6px;bor}
-      .msg button { color: #345; background: #bbc; border: none;border-radius: 6px; padding: .6em;margin-left: 1em;width: 15%;}
-      .msg button:hover{color: #333;background: rgb(166, 189, 255);}
+      .sendForm { display: table-cell; vertical-align:bottom;position: relative; bottom: 0; height: 5.8em; margin: 0 auto 1em; padding: 1em .5em; border: 1px solid #abc;}
+      .sendForm input { padding: .5em; border: 1px solid #abc; border-radius: 6px;}
+      .sendForm button { color: #345; background: #bbc; border: none;border-radius: 6px; padding: .6em;margin-left: 1em;width: 15%;}
+      .sendForm button:hover{color: #333;background: rgb(166, 189, 255);}
+
+
 
       #name {max-width: 6em; margin: .2em .2em 0;}
       #m { width: 78%; margin: .2em;}
@@ -27,11 +75,11 @@
   </head>
   <body>
   <div class="msgs">
-    <ul id="messages"></ul>
+    <ul class="messages"></ul>
   </div>
   <div class="msgForm">
     <div id="cont">
-    <form class="msg" action="">
+    <form class="sendForm" action="">
 	     <input id="name" autocomplete="off" placeholder="Name"/><br>
         <input id="m" autocomplete="off" placeholder="Type message" /><button>Send</button>
     </form>
@@ -42,14 +90,27 @@
    <script src="settings.js"></script>
    <script>
 
-var socket = io(setting.host+':'+setting.port);
+var url='http://192.168.1.102:3003';
+var socket = io(url);
+//console.log(socket.io.engine.id);
 var myData = {};
+
+socket.on('debug', function(debug){
+  console.log(debug);
+
+});
+
 $('form').submit(function(){
   myData.msg = $('#m').val();
   myData.name = $('#name').val();
   myData.id = socket.io.engine.id;
-  //alert('ID: '+myData.id);
-  $('#messages').append($('<li class="me">').text('[ '+myData.name + ' ]: ' + myData.msg));
+  console.log('ID: '+myData.id);
+  var Icon='<img src="res/me.png">';
+
+  var el='<li class="msg-right"><span class="chatMsg">'+myData.msg+'</span>'+myData.name+'<span class="msg-name">'+Icon+'</span></li>';
+
+  $('.messages').append(el);
+  //$('.messages').animate({ scrollTop: $('.messages').height() }, 600);
   
   socket.emit('chatData',myData);
    
@@ -57,10 +118,14 @@ $('form').submit(function(){
     return false;
 });
 
+
 socket.on('chatData', function(data){
 	//alert(data.name);
+  var Icon='<img src="res/fig2.jpg">';
+  console.log('dataid: '+data.id+'\nmyDataid: '+myData.id);
 	if(!(data.id===myData.id)){
-          $('#messages').append($('<li>').text('[ '+data.name + ' ]: ' + data.msg));
+          $('.messages').append('<li class="msg-left">'+'<span class="msg-name">'+Icon+data.name+'</span>'+'<span class="chatMsg">'+data.msg+'</span></li>');
+         // $('.messages').animate({ scrollTop: $('.messages').height() }, 600);
 	}
 });
 

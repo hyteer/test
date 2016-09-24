@@ -1,0 +1,39 @@
+
+.world{
+  perspective: 500px;
+  overflow: visible!important;
+  transform-style: preserve-3d!important;
+  -webkit-transform-style: preserve-3d!important;
+  
+}
+.box2dworld{
+  background: url('https://m1.behance.net/rendition/modules/168542595/1400/63d9b669450956c497d0d5fb85ffa910.jpg?cb=771519309');
+  background-size: cover;
+  background-position: bottom;
+}
+
+h2{
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  left:50%;
+  width:240px;
+  height:120px;
+  margin-left: -120px!important;
+  margin-top: 20px!important;
+  background: rgba(230,150,10,0.5);
+  padding: 10px;
+  line-height: 32px;
+  font-weight: 300;
+}
+.box{
+  border: 1px solid rgb(60,60,60);
+  position: absolute;
+  background-color: rgb(70,70,65);
+  background-size: contain;
+}
+.circle{
+  position: absolute;
+  background: rgb(90,90,90);
+  background-size: cover;
+}

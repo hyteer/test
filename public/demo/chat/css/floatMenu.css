@@ -1,0 +1,194 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+ul, li {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: absolute;
+  border-radius: 100%;
+}
+
+ul {
+  list-style: none;
+  left: 25px;
+  bottom: 25px;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  background-color: #D5402A;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+ul:hover {
+  background-color: #E74736;
+}
+ul:after {
+  width: 100%;
+  height: 100%;
+  display: block;
+  content: '\f0c9';
+  font-family: FontAwesome;
+  text-align: center;
+  line-height: 50px;
+  color: #FFF;
+  font-size: 16px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+ul.active:after {
+  content: '\f00d';
+}
+ul.active li {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+ul.active li:nth-child(1) {
+  top: 0px;
+  left: 115px;
+}
+ul.active li:nth-child(2) {
+  top: -44.00859px;
+  left: 106.24615px;
+}
+ul.active li:nth-child(3) {
+  top: -81.31728px;
+  left: 81.31728px;
+}
+ul.active li:nth-child(4) {
+  top: -106.24615px;
+  left: 44.00859px;
+}
+ul.active li:nth-child(5) {
+  top: -115px;
+  left: 0px;
+}
+ul.active.top-left li:nth-child(1) {
+  top: 0px;
+  left: 115px;
+}
+ul.active.top-left li:nth-child(2) {
+  top: 44.00859px;
+  left: 106.24615px;
+}
+ul.active.top-left li:nth-child(3) {
+  top: 81.31728px;
+  left: 81.31728px;
+}
+ul.active.top-left li:nth-child(4) {
+  top: 106.24615px;
+  left: 44.00859px;
+}
+ul.active.top-left li:nth-child(5) {
+  top: 115px;
+  left: 0px;
+}
+ul.active.top-right li:nth-child(1) {
+  top: 0px;
+  left: -115px;
+}
+ul.active.top-right li:nth-child(2) {
+  top: 44.00859px;
+  left: -106.24615px;
+}
+ul.active.top-right li:nth-child(3) {
+  top: 81.31728px;
+  left: -81.31728px;
+}
+ul.active.top-right li:nth-child(4) {
+  top: 106.24615px;
+  left: -44.00859px;
+}
+ul.active.top-right li:nth-child(5) {
+  top: 115px;
+  left: 0px;
+}
+ul.active.bottom-left li:nth-child(1) {
+  top: 0px;
+  left: 115px;
+}
+ul.active.bottom-left li:nth-child(2) {
+  top: -44.00859px;
+  left: 106.24615px;
+}
+ul.active.bottom-left li:nth-child(3) {
+  top: -81.31728px;
+  left: 81.31728px;
+}
+ul.active.bottom-left li:nth-child(4) {
+  top: -106.24615px;
+  left: 44.00859px;
+}
+ul.active.bottom-left li:nth-child(5) {
+  top: -115px;
+  left: 0px;
+}
+ul.active.bottom-right li:nth-child(1) {
+  top: 0px;
+  left: -115px;
+}
+ul.active.bottom-right li:nth-child(2) {
+  top: -44.00859px;
+  left: -106.24615px;
+}
+ul.active.bottom-right li:nth-child(3) {
+  top: -81.31728px;
+  left: -81.31728px;
+}
+ul.active.bottom-right li:nth-child(4) {
+  top: -106.24615px;
+  left: -44.00859px;
+}
+ul.active.bottom-right li:nth-child(5) {
+  top: -115px;
+  left: 0px;
+}
+
+li {
+  top: 0;
+  left: 0;
+  z-index: -999;
+  -webkit-transition: all 0.5s ease-out, top 0.5s cubic-bezier(1, 0, 0.4, 1.35), left 0.5s cubic-bezier(1, 0, 0.4, 1.35);
+  transition: all 0.5s ease-out, top 0.5s cubic-bezier(1, 0, 0.4, 1.35), left 0.5s cubic-bezier(1, 0, 0.4, 1.35);
+}
+li:nth-child(1) {
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+li:nth-child(2) {
+  -webkit-transition-delay: 0.05s;
+          transition-delay: 0.05s;
+}
+li:nth-child(3) {
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+li:nth-child(4) {
+  -webkit-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+}
+li:nth-child(5) {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+li a {
+  width: 35px;
+  height: 35px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 35px;
+  font-size: 16px;
+  color: #FFF;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #166AEC;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+li a:hover {
+  font-size: 20px;
+}
